@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +24,8 @@ public class ViewItens extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Banco banco = new Banco();
 		List<Item> lista = banco.list();
-		PrintWriter out = response.getWriter();
+		
+		/*PrintWriter out = response.getWriter();
 		
 		out.println("<html><body>");
 		out.println("<ul>");
@@ -39,6 +41,10 @@ public class ViewItens extends HttpServlet {
 		
 		out.println("</ul>");
 		out.println("</body></html>");
+		*/
+		request.setAttribute("itens", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("/Itens.jsp");
+    	rd.forward(request, response);
 		
 	}
 

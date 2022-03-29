@@ -3,6 +3,7 @@ package br.com.floricultura.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,11 +37,13 @@ public class NovoItemServlet extends HttpServlet {
     	banco.add(item);
     	
     	//String item = request.getParameter("item");
-    	PrintWriter out = response.getWriter();
-    	out.println("<html><body>Elemento recebido: " + item.getNome() + "</body></html>");
-    	
-    	
-    	
+    	//PrintWriter out = response.getWriter();
+    	//out.println("<html><body>Elemento recebido: " + item.getNome() + "</body></html>");
+    	RequestDispatcher rd = request.getRequestDispatcher("/ViewItem.jsp");
+    	request.setAttribute("nome", item.getNome());
+    	request.setAttribute("descricao", item.getDescricao());
+    	request.setAttribute("preco", item.getPreco_custo());
+    	rd.forward(request, response);
     }
 
 }
