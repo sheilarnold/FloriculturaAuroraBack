@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.floricultura.model.Banco;
+import br.com.floricultura.model.Item;
+
 /**
  * Servlet implementation class NovoItemServlet
  */
@@ -23,9 +26,21 @@ public class NovoItemServlet extends HttpServlet {
 	
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("Cadastrando novo item");
-    	String item = request.getParameter("item");
+    	
+    	Item item = new Item();
+    	item.setNome(request.getParameter("nome"));
+    	item.setDescricao(request.getParameter("descricao"));
+    	item.setPreco_custo(Double.parseDouble(request.getParameter("preco")));
+    	
+    	Banco banco = new Banco();
+    	banco.add(item);
+    	
+    	//String item = request.getParameter("item");
     	PrintWriter out = response.getWriter();
-    	out.println("<html><body>Elemento recebido: " + item + "</body></html>");
+    	out.println("<html><body>Elemento recebido: " + item.getNome() + "</body></html>");
+    	
+    	
+    	
     }
 
 }
