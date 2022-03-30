@@ -1,11 +1,14 @@
 package br.com.floricultura.model;
 
+import java.util.Date;
+
 public class Item {
 	
 	private int id;
 	private String nome;
 	private String descricao;
 	private double preco_custo;
+	private Date validade = new Date();
 	
 	public int getId() {
 		return id;
@@ -31,5 +34,12 @@ public class Item {
 	public void setPreco_custo(double preco_custo) {
 		this.preco_custo = preco_custo;
 	}
-
+	
+	public Date getValidade() {
+		return validade;
+	}
+	public void setValidade(Date validade) {
+		this.validade = validade;
+	}
+	
 }
