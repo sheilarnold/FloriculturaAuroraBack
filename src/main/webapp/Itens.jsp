@@ -16,7 +16,7 @@
 	<ul>
 		<c:forEach items="${itens}" var="item">
 			<li>
-				Item: ${item.nome}
+				Item: ${item.nome} | <a href="/FloriculturaAurora/Remover?id=${item.id}">Remover</a> |
 				<ul>					
 					<li>Descrição: ${item.descricao}</li>
 					<li>Preço de custo: ${item.preco_custo}</li>
