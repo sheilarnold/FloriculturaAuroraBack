@@ -16,7 +16,7 @@
 	<ul>
 		<c:forEach items="${itens}" var="item">
 			<li>
-				Item: ${item.nome} | <a href="/FloriculturaAurora/Remover?id=${item.id}">Remover</a> |
+				Item: ${item.nome} | <a href="/FloriculturaAurora/Remover?id=${item.id}">Remover</a> | <a href="/FloriculturaAurora/Editar?id=${item.id}">Editar</a>
 				<ul>					
 					<li>Descrição: ${item.descricao}</li>
 					<li>Preço de custo: ${item.preco_custo}</li>
@@ -26,22 +26,6 @@
 		</c:forEach>
 	</ul>
 	
-====================
-	<ul>
-		<%
-			List<Item> lista = (List<Item>)request.getAttribute("itens");
-				
-			for(Item item : lista){
-		%>
-			<li>
-				Item: <%=item.getNome()%>
-				<ul>
-					<li>Descrição: <%=item.getDescricao()%></li>
-					<li>Preço de custo: <%=item.getPreco_custo()%>
-				</ul>
-			</li>
-		<% } %>
-	</ul>
-
+	<button><a href="/FloriculturaAurora/FormNewItem.jsp">Adicionar novo item</a></button>
 </body>
 </html>

@@ -56,5 +56,14 @@ public class Banco {
 		}
 		
 	}
+
+	public Item findById(Integer id) {
+		for(Item item: itens) {
+			if(item.getId() == id) {
+				return item;
+			}
+		}
+		return null;
+	}
 	
 }

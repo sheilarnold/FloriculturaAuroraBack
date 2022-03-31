@@ -17,7 +17,7 @@ import br.com.floricultura.model.Item;
 /**
  * Servlet implementation class ViewItens
  */
-@WebServlet("/Itens")
+//@WebServlet("/Itens")
 public class ViewItens extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
